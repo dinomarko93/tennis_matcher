@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block body %}
+
+<div class="jumbotron text-center">
+    <h1>Dobrodošli na Tennis Matcher</h1>
+    <p class="lead">Aplikaciju koja će vam olakšati igranje tenisa </p>
+
+    {%if session.logged_in == NULL %}
+
+    <img src="{{ user_image }}" alt="User Image">
+
+    <a href="/register" class="btn btn-primary btn-lg">Registracija</a>
+    <a href="/login" class="btn btn-success btn-lg">Prijava</a> {%endif%} {%if session.logged_in != NULL %}
+    <br>
+    <br>
+    <br>
+    <div class="imgs">
+        <img src="{{plus_icon}}" class="plus_icon_1 pull-left" alt="plus Image">
+        <img src="{{list_icon}}" class="list_icon pull-center" alt="plus Image">
+        <img src="{{profile_icon}}" class="profile_icon pull-right" alt="profile icon">
+        <br>
+        <br>
+    </div>
+    <div class="buttons">
+        <a class="btn btn-primary create_match_btn pull-left" href="/create_new_match">Kreiraj novi meč </a>
+        <a class="btn btn-primary preview_matches_btn pull-center" href="/show_matches">Pregledaj mečeve</a>
+        <a class="btn btn-primary preview_matches_btn pull-right" href="my_profile">Pregled profila</a>
+    </div>
+    <br>
+    <br>
+</div>
+{%endif%}
+
+
+</div>
+
+<style>
+
+</style>
+{% endblock %}

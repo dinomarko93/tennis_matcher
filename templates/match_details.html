@@ -1,0 +1,66 @@
+{% extends 'layout.html' %} {% block body %}
+
+<div class="page-header">
+    <h1>Moji podaci</h1>
+</div>
+
+{% from "includes/_formhelpers.html" import render_field %}
+
+<form action="" method="GET">
+    <div class="form-row">
+        <div class="form-group">
+            {%if form.prvi_igracID.data == form.pobjednikID.data%}
+
+            <div class="col-md-6" style="margin-bottom: 15px">
+                {{render_field(form.prvi_igrac, class_="form-control", style="border-color:#00c853")}}
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 15px">
+                {{render_field(form.drugi_igrac, class_="form-control")}}
+            </div>
+
+            {%elif form.drugi_igracID.data == form.pobjednikID.data %}
+
+            <div class="col-md-6" style="margin-bottom: 15px" ;>
+                {{render_field(form.prvi_igrac, class_="form-control")}}
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 15px">
+                {{render_field(form.drugi_igrac, class_="form-control", style="border-color:#00c853")}}
+            </div>
+
+            {%else%}
+
+            <div class="col-md-6" style="margin-bottom: 15px" ;>
+                {{render_field(form.prvi_igrac, class_="form-control")}}
+            </div>
+
+            <div class="col-md-6" style="margin-bottom: 15px">
+                {{render_field(form.drugi_igrac, class_="form-control")}}
+            </div>
+
+
+            {%endif%}
+
+            <div class="form-group">
+                {{render_field(form.lokacija, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.vrijeme, class_="form-control")}}
+            </div>
+
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set1, class_="form-control")}} {{render_field(form.igrac2_set1, class_="form-control")}}
+            </div>
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set2, class_="form-control")}} {{render_field(form.igrac2_set2, class_="form-control")}}
+            </div>
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set3, class_="form-control")}} {{render_field(form.igrac2_set3, class_="form-control")}}
+            </div>
+
+</form>
+
+
+{%endblock%}

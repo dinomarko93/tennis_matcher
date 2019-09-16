@@ -1,0 +1,55 @@
+{% extends 'layout.html' %} {% block body %}
+
+<div class="page-header">
+    <h1>Dogovoren je meč između igrača {{prvi_igrac}} i {{drugi_igrac}}</h1>
+</div>
+
+{% from "includes/_formhelpers.html" import render_field %}
+<form action="" method="POST">
+    <div class="first">
+        <div class="form-group">
+
+            <div class="form-group">
+                {{render_field(form.lokacija, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.vrijeme, class_="form-control")}}
+            </div>
+            <br>
+            <h2>Rezultat meča</h2>
+
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set1, class_="form-control")}} {{render_field(form.igrac2_set1, class_="form-control")}}
+            </div>
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set2, class_="form-control")}} {{render_field(form.igrac2_set2, class_="form-control")}}
+            </div>
+            <div class="col-md-3">
+                {{render_field(form.igrac1_set3, class_="form-control")}} {{render_field(form.igrac2_set3, class_="form-control")}}
+            </div>
+            <div class="second">
+                <div class="second">
+                    <input type="submit" value="Spremi" class="btn btn-primary">
+                </div>
+
+</form>
+
+
+
+<style>
+    .second {
+        width: 100px;
+        height: 100px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-top: 200px;
+    }
+</style>
+
+
+
+{% endblock %}

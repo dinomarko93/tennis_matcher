@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} {% block body %}
+<h1>Moji mečevi
+
+</h1>
+
+<a class="btn btn-success" style="margin-bottom: 25px" href="/create_new_match"> Dodaj novi meč </a>
+
+<table class="table table-striped">
+    <tr>
+        <th>Lokacija</th>
+        <th>Termin</th>
+        <th>Status</th>
+    </tr>
+    {% for mec in mecevi %}
+    <td>{{mec.lokacija}}</td>
+    <td>{{mec.vrijeme_odigravanja.strftime('%d-%m-%Y:%H:%m')}}</td>
+
+    {%for igrac in igraci %} {% if mec.pobjednik_id == igrac.id and mec.otvoren == 0 %}
+    <td>
+        <a href="{{ url_for('match_details', id=mec.id)}}"> Pobjeda </a>
+    </td>
+    {%elif mec.gubitnik_id == igrac.id and mec.otvoren == 0 %}
+    <td>
+        <a href="{{ url_for('match_details', id=mec.id)}}"> Poraz </a>
+    </td>
+    {%else%}
+    <td>
+        <a href="{{ url_for('join_match', id=mec.id)}}"> Neodigrano </a>
+    </td>
+    {%endif%} {%endfor%}
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block body %}
+<h1>Prijava</h1>
+<form action="" method="POST">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="username" class="form-control" value={{request.form.username}}>
+    </div>
+    <div class="form-group">
+        <label>Lozinka</label>
+        <input type="password" name="password" class="form-control" value={{request.form.password}}>
+    </div>
+    <button type="submit" class="btn btn-primary">Prijavi se</button>
+</form>
+{% endblock %}

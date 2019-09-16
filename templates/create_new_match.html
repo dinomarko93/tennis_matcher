@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="jumbotron text-center">
+    <p>Novi meč</p>
+</div>
+<form action="" method="POST">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Kreiraj novi meč</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Željena lokacija</label>
+                        <select class="form-control form-control-lg" name="lokacija" placeholder=".form-control-lg">
+                        <option>Dijamant, Poreč</option>
+                        <option>Ulika, Poreč</option>
+                        <option>Poreč - Zelena Laguna</option>
+                        <option>Pula - Verudela</option>
+                        <option>Kukci - VillaGloria</option>
+                        <option>Pazin</option>
+                        <option>Umag - Stella Maris</option>
+                      </select>
+                    </div>
+                </div>
+                <div class='col-md-6'>
+                    <div class="form-group">
+                        <label>Vrijeme odigravanja</label>
+                        <form>
+                            <input type="datetime-local" name="termin" class="form-control">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block; margin-bottom:20px;" value="Kreiraj">
+    </div>
+</form>
+
+
+{% endblock %}
